@@ -10,6 +10,7 @@ export class ProductRepository extends Repository<Product> {
     return this.findOne({
       where: {
         id,
+        isActive: true
       },
     });
   }

@@ -13,6 +13,7 @@ import { CartModule } from '../cart/cart.module';
     forwardRef(() => CartModule),
   ],
   controllers: [ProductController],
-  providers: [ProductService]
+  providers: [ProductService],
+  exports: [ProductService]
 })
 export class ProductModule {}

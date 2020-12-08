@@ -23,4 +23,7 @@ export class Cart extends BaseEntity  {
 
   @ManyToOne(() => Product, product => product.cart)
   product: Product;
+
+  @Column({ name: 'qty', default: '1' })
+  qty: number;
 }
