@@ -11,11 +11,6 @@ export class CartController {
     return this.cartService.modify(createCartDto);
   }
 
-  @Get()
-  findAll() {
-    return this.cartService.findAll();
-  }
-
   @Get(':userId')
   findAllForUser(@Param('userId') id: string) {
     return this.cartService.findAllForUser(id);
