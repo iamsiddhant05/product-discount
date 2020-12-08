@@ -23,9 +23,9 @@ export class CartRepository extends Repository<Cart> {
     });
   }
 
-  async findAllForUser(userId) {
+  async findAllForUser(userId): Promise<Cart[]> {
     return this.find({
-      relations: ['product', 'user'],
+      relations: ['product', 'user', 'product.discount'],
       where: {
         user: userId,
         status: CartProductStatus.IN_CART

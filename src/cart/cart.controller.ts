@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { CartService } from './cart.service';
 import { CreateCartDto } from './dto/create-cart.dto';
 
@@ -21,18 +21,8 @@ export class CartController {
     return this.cartService.findAllForUser(id);
   }
 
-  // @Get('checkout/:userId')
-  // checkout(@Param('userId') id: string) {
-  //   return this.cartService.checkout(id);
-  // }
-
-  // @Put(':id')
-  // update(@Param('id') id: string, @Body() updateCartDto: UpdateCartDto) {
-  //   return this.cartService.update(id, updateCartDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string): Promise<Cart> {
-  //   return this.cartService.remove(id);
-  // }
+  @Get('checkout/:userId')
+  checkout(@Param('userId') id: string) {
+    return this.cartService.checkout(id);
+  }
 }

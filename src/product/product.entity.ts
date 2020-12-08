@@ -11,8 +11,8 @@ export class Product extends BaseEntity  {
   @Column({ name: 'name', default: '' })
   name: string;
 
-  @Column({ name: 'price', default: '' })
-  price: string;
+  @Column({ name: 'price', default: '0' })
+  price: number;
 
   @Column({ name: 'status', type: 'boolean', default: true })
   isActive: boolean;

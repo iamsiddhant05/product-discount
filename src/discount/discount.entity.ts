@@ -8,20 +8,20 @@ export class Discount extends BaseEntity  {
   @Generated('uuid')
   id: string;
 
-  @Column({ name: 'status', type: 'boolean', default: true })
+  @Column({ name: 'is_active', type: 'boolean', default: true })
   isActive: boolean;
 
   @Column({ name: 'discount_type', default: DiscountType.NONE, length: 30 })
   discountType: DiscountType;
 
-  @Column({ name: 'value', default: '' })
-  value: string;
+  @Column({ name: 'value', nullable: true })
+  value: number;
 
-  @Column({ name: 'max_unit', default: '' })
-  maxUnit: string;
+  @Column({ name: 'max_unit', nullable: true })
+  maxUnit: number;
 
-  @Column({ name: 'min_value', default: '' })
-  minValue: string;
+  @Column({ name: 'min_value', nullable: true })
+  minValue: number;
 
   @OneToMany(() => Product, product => product.discount)
   product: Product[];

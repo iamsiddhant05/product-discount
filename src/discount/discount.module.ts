@@ -1,15 +1,15 @@
 import { forwardRef, Module } from "@nestjs/common";
-// import { ProductController } from "../product/product.controller";
+import { TypeOrmModule } from "@nestjs/typeorm";
 import { ProductModule } from "../product/product.module";
-// import { ProductService } from "../product/product.service";
-// import { UserModule } from "../user/user.module";
+import { DiscountRepository } from "./discount.repository";
+import { DiscountService } from "./discount.service";
 
 @Module({
   imports: [
-    // TypeOrmModule.forFeature([ProductRepository]),
+    TypeOrmModule.forFeature([DiscountRepository]),
     forwardRef(() => ProductModule),
   ],
-  // controllers: [ProductController],
-  // providers: [ProductService]
+  providers: [DiscountService],
+  exports: [DiscountService],
 })
 export class DiscountModule {}
