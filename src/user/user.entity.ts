@@ -1,7 +1,8 @@
-import { Column, Generated, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, Entity } from 'typeorm';
+import { Cart } from '../cart/cart.entity';
+import { Column, Generated, PrimaryGeneratedColumn, UpdateDateColumn, CreateDateColumn, Entity, OneToMany, BaseEntity } from 'typeorm';
 
 @Entity('users')
-export class Users {
+export class Users extends BaseEntity  {
   @PrimaryGeneratedColumn('uuid')
   @Generated('uuid')
   id: string;
@@ -17,4 +18,7 @@ export class Users {
 
   @Column({ name: 'name', default: '' })
   name: string;
+
+  @OneToMany(() => Cart, cart => cart.user)
+  cart: Cart[];
 }
