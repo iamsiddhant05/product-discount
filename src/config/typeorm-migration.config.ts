@@ -10,6 +10,13 @@ const config: ConnectionOptions = {
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
   synchronize: false,
   migrations: [__dirname + '/../migrations/**/*{.ts,.js}'],
+  cache: {
+    type: 'redis',
+    options: {
+      host: process.env.REDIS_URL,
+      port: process.env.REDIS_PORT,
+    },
+  },
   cli: {
     migrationsDir: 'src/migrations',
   },

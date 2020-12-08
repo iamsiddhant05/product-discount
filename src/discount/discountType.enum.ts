@@ -1,0 +1,7 @@
+export enum DiscountType {
+  NONE = 'NONE',
+  PERCENT = 'PERCENT',
+  ABSOLUTE = 'ABSOLUTE',
+  MULTIPLE_ITEM = 'MULTIPLE_ITEM',
+  MIN_ORDER = 'MIN_ORDER',
+}
